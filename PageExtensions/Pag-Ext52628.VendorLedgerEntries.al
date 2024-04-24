@@ -9,7 +9,7 @@ pageextension 52628 "ORB Vendor Ledger Entries" extends "Vendor Ledger Entries"
             {
                 ApplicationArea = ALL;
                 Editable = false;
-                ToolTip = 'Vendor Name';
+                ToolTip = 'Specifies the Vendor Name';
                 Caption = 'Vendor Name';
 
             }

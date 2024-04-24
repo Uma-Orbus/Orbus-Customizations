@@ -17,7 +17,15 @@ pageextension 52627 "ORB Customer List" extends "Customer List"
                 ApplicationArea = All;
                 Editable = false;
                 ToolTip = 'Customer ship to State';
-                Caption = 'Default Ship to State';
+                Caption = 'Default Ship-to State';
+
+            }
+            field("ORB ShiptoZipCode"; ShiptoZipcodeVarGbl)
+            {
+                ApplicationArea = All;
+                Editable = false;
+                ToolTip = 'Customer Ship-to State';
+                Caption = 'Default Zip Code';
 
             }
 
@@ -28,6 +36,7 @@ pageextension 52627 "ORB Customer List" extends "Customer List"
     Var
         StreetAddressVarGbl: Text;
         ShiptoStateVarGbl: Text;
+        ShiptoZipcodeVarGbl: Text;
 
     trigger OnAfterGetRecord()
     Var
@@ -38,10 +47,12 @@ pageextension 52627 "ORB Customer List" extends "Customer List"
         ShiptoAddressRecLcl.SetRange(Code, Rec."Ship-to Code");
         If ShiptoAddressRecLcl.FindFirst() then begin
             ShiptoStateVarGbl := ShiptoAddressRecLcl.County;
-            ShiptoStateVarGbl := ShiptoAddressRecLcl.Address;
+            StreetAddressVarGbl := ShiptoAddressRecLcl.Address;
+            ShiptoZipcodeVarGbl := ShiptoAddressRecLcl."Post Code";
         end else begin
             ShiptoStateVarGbl := '';
-            ShiptoStateVarGbl := '';
+            StreetAddressVarGbl := '';
+            ShiptoZipcodeVarGbl := '';
         end;
     end;
 }
