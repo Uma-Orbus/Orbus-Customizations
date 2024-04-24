@@ -5,7 +5,7 @@ pageextension 52628 "ORB Vendor Ledger Entries" extends "Vendor Ledger Entries"
     {
         addafter("Vendor No.")
         {
-            field("ORB Vendor Name"; VendorNameGbl)
+            field("ORB Vendor Name"; VendorNameVarGbl)
             {
                 ApplicationArea = ALL;
                 Editable = false;
@@ -17,7 +17,7 @@ pageextension 52628 "ORB Vendor Ledger Entries" extends "Vendor Ledger Entries"
 
     }
     var
-        VendorNameGbl: Text;
+        VendorNameVarGbl: Text;
 
     trigger OnAfterGetRecord()
     var
@@ -26,9 +26,9 @@ pageextension 52628 "ORB Vendor Ledger Entries" extends "Vendor Ledger Entries"
         lVendorRecLcl.Reset();
         lVendorRecLcl.SetRange("No.", Rec."Vendor No.");
         If lVendorRecLcl.FindFirst() then begin
-            VendorNameGbl := lVendorRecLcl.Name;
+            VendorNameVarGbl := lVendorRecLcl.Name;
         end else
-            VendorNameGbl := ''
+            VendorNameVarGbl := ''
     end;
 
 }
