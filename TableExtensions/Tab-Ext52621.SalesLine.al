@@ -8,7 +8,7 @@ tableextension 52621 "ORB Sales Line" extends "Sales Line"
             DataClassification = ToBeClassified;
         }
 
-        field(50118; "ORB Ship-to State_fl"; Text[50])
+        field(52606; "ORB Ship-to State_fl"; Text[50])
         {
             Caption = 'State';
             Editable = false;
